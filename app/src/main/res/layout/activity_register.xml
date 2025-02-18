@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:hint="password"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:minHeight="48dp"
                 android:padding="12dp" />
 
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:hint="konfirmasi password"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:minHeight="48dp"
                 android:padding="12dp" />
 

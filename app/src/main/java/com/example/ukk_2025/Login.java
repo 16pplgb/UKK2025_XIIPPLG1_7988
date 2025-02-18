@@ -68,10 +68,8 @@ public class Login extends AppCompatActivity {
 
     private void Masukuser(String email, String password) {
 
-        // Membuat RequestQueue
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        // Membuat JSON Object untuk dikirim ke server
         JSONObject postData = new JSONObject();
         try {
             postData.put("username", email);
@@ -80,7 +78,6 @@ public class Login extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        // Membuat permintaan JSON ke server
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 Login + "?username=" + email + "&password=" + password,
@@ -95,20 +92,16 @@ public class Login extends AppCompatActivity {
                             if (success) {
                                 Toast.makeText(Login.this, "Login berhasil!", Toast.LENGTH_SHORT).show();
 
-                                // Ambil data pengguna
                                 JSONObject userData = response.getJSONObject("data");
                                 String idUser = userData.getString("id");
 
-                                // Di kode login
                                 SharedPreferences sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString("idL", idUser);
                                 editor.apply();
 
-                                // Tampilkan pada log
                                 Log.d("SharedPreferences", "id User: " + idUser);
 
-                                // Pindah ke halaman utama atau dashboard
                                 Intent intent = new Intent(Login.this, MainActivity.class);
                                 intent.putExtra("idL", idUser);
                                 startActivity(intent);
@@ -130,7 +123,6 @@ public class Login extends AppCompatActivity {
                 }
         );
 
-        // Tambahkan permintaan ke RequestQueue
         queue.add(jsonObjectRequest);
     }
 }

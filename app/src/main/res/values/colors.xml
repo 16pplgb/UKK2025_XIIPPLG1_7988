@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Basic Colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="yellow">#FF0F97</color>
-    <color name="pink">#FF7F83</color>
+
+    <!-- Additional Colors -->
+    <color name="red">#FFFF0000</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="blue">#FF2196F3</color>
+    <color name="green">#FF4CAF50</color>
+    <color name="yellow">#FFFFEB3B</color>
+    <color name="gray">#FF9E9E9E</color>
+
+    <!-- Transparent Variants -->
+    <color name="black_transparent">#80000000</color>
+    <color name="white_transparent">#80FFFFFF</color>
 </resources>

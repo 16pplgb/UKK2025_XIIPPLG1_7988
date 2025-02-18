@@ -1,5 +1,6 @@
 package com.example.ukk_2025;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,13 +11,24 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.button.MaterialButton;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity {
 
-    private EditText username, email, password, confirmPassword, name;
+    private EditText username, email, password, confirm_password, name;
     private MaterialButton buttonRegister;
     private TextView loginLink;
+
+    final String REGISTER_URL = "http://172.16.0.197/UKK2025/register.php";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,10 +38,12 @@ public class Register extends AppCompatActivity {
         username = findViewById(R.id.Username);
         email = findViewById(R.id.Email);
         password = findViewById(R.id.Password);
-        confirmPassword = findViewById(R.id.confirmPw);
+        confirm_password = findViewById(R.id.confirmPw);
         name = findViewById(R.id.name);
         buttonRegister = findViewById(R.id.buttonRegister);
         loginLink = findViewById(R.id.Login);
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,34 +55,65 @@ public class Register extends AppCompatActivity {
         loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToLogin();
+                Intent intent = new Intent(Register.this, Login.class);
+                startActivity(intent);
             }
         });
     }
 
     private void registerUser() {
-        String user = username.getText().toString().trim();
-        String mail = email.getText().toString().trim();
-        String pass = password.getText().toString().trim();
-        String confirmPass = confirmPassword.getText().toString().trim();
-        String fullName = name.getText().toString().trim();
+        String Username = username.getText().toString().trim();
+        String Password = password.getText().toString().trim();
+        String Email = email.getText().toString().trim();
+        String Name = name.getText().toString().trim();
+        String ConfirmPassword =confirm_password .getText().toString().trim();
 
-        if (user.isEmpty() || mail.isEmpty() || pass.isEmpty() || confirmPass.isEmpty() || fullName.isEmpty()) {
-            Toast.makeText(this, "Harap isi semua kolom", Toast.LENGTH_SHORT).show();
+        if (Username.isEmpty() || Password.isEmpty() || Email.isEmpty() || Name.isEmpty() || ConfirmPassword.isEmpty()) {
+            Toast.makeText(this, "Semua data harus diisi", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if (!pass.equals(confirmPass)) {
+        if (!Password.equals(ConfirmPassword)) {
             Toast.makeText(this, "Password tidak cocok", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        Toast.makeText(this, "Pendaftaran berhasil!", Toast.LENGTH_SHORT).show();
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Mendaftarkan...");
+        progressDialog.show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,REGISTER_URL ,
+
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        progressDialog.dismiss();
+                        Toast.makeText(Register.this, "Registrasi berhasil!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Register.this, Login.class));
+                        finish();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        progressDialog.dismiss();
+                        Toast.makeText(Register.this, "Gagal mendaftar: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("username", Username);
+                params.put("password", Password);
+                params.put("email", Email);
+                params.put("name", Name);
+                params.put("confirmation", ConfirmPassword);
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 
-    private void navigateToLogin() {
-        Intent intent = new Intent(Register.this, Login.class);
-        startActivity(intent);
-        finish();
-    }
 }
