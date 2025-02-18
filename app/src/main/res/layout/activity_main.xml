@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttoncat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Category"
@@ -15,5 +15,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteX="154dp"
         tools:layout_editor_absoluteY="210dp" />
+
+
+    <TextView
+        android:id="@+id/profil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:drawableLeft="@drawable/baseline_account_circle_24"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
