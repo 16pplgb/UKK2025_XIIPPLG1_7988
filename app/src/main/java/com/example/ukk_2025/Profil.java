@@ -26,7 +26,7 @@ public class Profil extends AppCompatActivity {
     private TextView nameTextView, emailTextView, phoneTextView; // TextView untuk menampilkan data pengguna
     private Button logoutButton; // Tombol logout
     private String userId;
-    private static final String API_URL = "https://yourapi.com/users/"; // Ganti dengan URL API Anda
+    private static final String API_URL = "http://172.16.0.197/UKK2025/profil.php"; // Ganti dengan URL API Anda
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -49,7 +49,7 @@ public class Profil extends AppCompatActivity {
         }
 
         if (userId != null) {
-            fetchUserData(userId); // Ambil data pengguna berdasarkan ID
+            fetchUserData(userId);// Ambil data pengguna berdasarkan ID
         }
 
         // Set aksi tombol logout
@@ -62,7 +62,7 @@ public class Profil extends AppCompatActivity {
     }
 
     private void fetchUserData(String id) {
-        String url = API_URL + id; // Buat URL untuk request API
+        String url = API_URL + "?user_id=" + id;// Buat URL untuk request API
 
         // Menggunakan Volley untuk request data
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -72,14 +72,12 @@ public class Profil extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             // Ambil data dari response JSON
-                            String name = response.getString("name");
-                            String email = response.getString("email");
-                            String phone = response.getString("phone");
+                            String Name = response.getString("name");
+                            String Email = response.getString("email");
 
                             // Set data ke TextView
-                            nameTextView.setText(name);
-                            emailTextView.setText(email);
-                            phoneTextView.setText(phone);
+                            nameTextView.setText(Name);
+                            emailTextView.setText(Email);
 
                         } catch (JSONException e) {
                             e.printStackTrace();

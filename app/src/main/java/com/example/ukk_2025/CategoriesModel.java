@@ -2,22 +2,22 @@ package com.example.ukk_2025;
 
 public class CategoriesModel {
     private String id;
-    private String Categories;
+    private String categories;
 
     public CategoriesModel(String id, String categories) {
         this.id = id;
-        this.Categories = Categories;
+        this.categories = categories;
     }
 
     public String getId() {
         return id;
     }
 
-    public String getKategori() {
-        return Categories;
+    public String getCategories() {
+        return categories;
     }
 
-    public void setKategori(String categories) {
-        this.Categories = categories;
+    public void setCategories(String categories) {
+        this.categories = categories;
     }
 }

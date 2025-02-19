@@ -95,7 +95,7 @@ public class Login extends AppCompatActivity {
                                 JSONObject userData = response.getJSONObject("data");
                                 String idUser = userData.getString("id");
 
-                                SharedPreferences sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE);
+                                SharedPreferences sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString("idL", idUser);
                                 editor.apply();
