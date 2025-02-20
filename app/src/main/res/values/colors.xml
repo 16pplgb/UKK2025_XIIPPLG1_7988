@@ -12,6 +12,7 @@
     <color name="yellow">#FFFFEB3B</color>
     <color name="gray">#FF9E9E9E</color>
     <color name="dark_gray">#757575</color>
+    <color name="pink">#FF69B4</color>
 
     <!-- Transparent Variants -->
     <color name="black_transparent">#80000000</color>

@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button kat;
 
+    private Button tsk;
+
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         prf = findViewById(R.id.profil);
         kat = findViewById(R.id.buttoncat);
+        tsk = findViewById(R.id.btnTask);
 
         prf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,5 +42,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+        tsk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Task.class);
+                startActivity(intent);
+            }
+        });
     }
+
 }

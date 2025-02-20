@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
-    tools:context=".Login">
+    android:background="@drawable/background3"
+    tools:context="Login">
 
   <androidx.cardview.widget.CardView
       android:id="@+id/login_card"
@@ -27,7 +27,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="24dp"
+        android:background="@color/white">
 
       <TextView
           android:id="@+id/login_title"

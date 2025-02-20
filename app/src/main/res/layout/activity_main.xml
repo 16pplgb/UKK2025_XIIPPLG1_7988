@@ -4,18 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background6"
     tools:context=".MainActivity">
+
 
     <Button
         android:id="@+id/buttoncat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Category"
-        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="210dp" />
-
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.425"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/profil"
@@ -24,5 +29,31 @@
         app:layout_constraintStart_toStartOf="parent"
         android:drawableLeft="@drawable/baseline_account_circle_24"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To Do List"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="35dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnTask"
+        android:layout_width="104dp"
+        android:layout_height="46dp"
+        android:backgroundTint="@color/red"
+        android:text="Task"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.532" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
