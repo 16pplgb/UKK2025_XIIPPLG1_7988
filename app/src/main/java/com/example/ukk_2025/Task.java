@@ -45,7 +45,6 @@ public class Task extends AppCompatActivity {
         setContentView(R.layout.activity_task);
 
 
-        // Inisialisasi RecyclerView dan SwipeRefresh
         rvTasks = findViewById(R.id.rvTasks);
         rvTasks.setLayoutManager(new LinearLayoutManager(this));
         taskList = new ArrayList<>();
@@ -56,10 +55,8 @@ public class Task extends AppCompatActivity {
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setOnRefreshListener(this::fetchTasks);
 
-        // Inisialisasi RequestQueue dengan WeakReference
         requestQueueRef = new WeakReference<>(Volley.newRequestQueue(this));
 
-        // Mengambil userId dari SharedPreferences
         SharedPreferences prefs = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
         userId = prefs.getString("idL", null);
 
@@ -68,7 +65,6 @@ public class Task extends AppCompatActivity {
             userId = regisPrefs.getString("idR", null);
         }
 
-        // Ambil data tugas
         fetchTasks();
         History=findViewById(R.id.history);
         History.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +82,6 @@ public class Task extends AppCompatActivity {
             return;
         }
 
-        // Tampilkan loading hanya dengan SwipeRefreshLayout
         swipeRefreshLayout.setRefreshing(true);
 
         StringRequest postRequest = new StringRequest(
@@ -97,9 +92,8 @@ public class Task extends AppCompatActivity {
                     try {
                         JSONObject jsonResponse = new JSONObject(response);
 
-                        // Periksa apakah status sukses
                         if (jsonResponse.getString("status").equals("success")) {
-                            JSONArray tasksArray = jsonResponse.getJSONArray("tasks"); // Ambil array dari "tasks"
+                            JSONArray tasksArray = jsonResponse.getJSONArray("tasks");
 
                             for (int i = 0; i < tasksArray.length(); i++) {
                                 JSONObject taskObj = tasksArray.getJSONObject(i);
@@ -117,7 +111,6 @@ public class Task extends AppCompatActivity {
                     } catch (JSONException e) {
                         Log.e("Task", "JSON Parsing Error: " + e.getMessage());
                     }
-                    // Matikan SwipeRefresh setelah selesai
                     swipeRefreshLayout.setRefreshing(false);
                 },
                 error -> {

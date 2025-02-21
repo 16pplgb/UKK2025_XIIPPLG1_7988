@@ -57,16 +57,13 @@ public class Categories extends AppCompatActivity {
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setOnRefreshListener(this::loadData);
 
-        // Inisialisasi RecyclerView
         recyclerView = findViewById(R.id.recyclerViewkategori);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Inisialisasi Adapter
         categoriesList = new ArrayList<>();
         adapter = new CategoriesAdapter(this, categoriesList);
         recyclerView.setAdapter(adapter);
 
-        // Tombol Tambah Pelanggan
         btnTambahPelanggan = findViewById(R.id.btnTambahKategori);
         btnTambahPelanggan.setOnClickListener(v -> showAddKategoriDialog());
         loadData();
@@ -90,7 +87,7 @@ public class Categories extends AppCompatActivity {
             if (nama.isEmpty()) {
                 Toast.makeText(this, "Semua data harus diisi!", Toast.LENGTH_SHORT).show();
             } else {
-                tambahKategori(nama); // Ganti 1 dengan user_id yang sesuai
+                tambahKategori(nama);
                 dialog.dismiss();
             }
         });
