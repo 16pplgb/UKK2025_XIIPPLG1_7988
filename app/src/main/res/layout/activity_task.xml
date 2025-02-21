@@ -6,7 +6,6 @@
     android:background="@color/white_transparent"
     tools:context=".Task">
 
-    <!-- Judul -->
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
@@ -18,7 +17,6 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <!-- Tombol "Tambah Pelanggan" -->
     <Button
         android:id="@+id/btnTambahTask"
         android:layout_width="158dp"
@@ -36,13 +34,13 @@
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 
-    <!-- SwipeRefreshLayout dengan RecyclerView -->
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/btnTambahTask"
-        android:layout_marginBottom="56dp"> <!-- Tambahkan margin agar tidak tertutup BottomNavigationView -->
+        android:layout_marginBottom="56dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTasks"
