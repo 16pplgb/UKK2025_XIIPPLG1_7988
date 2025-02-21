@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/darker_gray"
         android:hint="Name Categories"
+        android:textColorHint="@color/black"
         android:minHeight="48dp"
         android:padding="10dp" />
 

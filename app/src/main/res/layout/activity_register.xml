@@ -49,7 +49,8 @@ tools:context=".Login">
             android:hint="username"
             android:inputType="text"
             android:minHeight="48dp"
-            android:padding="10sp" />
+            android:padding="10sp"
+            android:textColorHint="@color/black"/>
 
         <EditText
             android:id="@+id/Email"
@@ -59,7 +60,8 @@ tools:context=".Login">
             android:hint="email"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:textColorHint="@color/black"/>
 
         <EditText
             android:id="@+id/Password"
@@ -69,7 +71,8 @@ tools:context=".Login">
             android:hint="password"
             android:inputType="textPassword"
             android:minHeight="48dp"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:textColorHint="@color/black"/>
 
 
         <EditText
@@ -80,7 +83,8 @@ tools:context=".Login">
             android:hint="konfirmasi password"
             android:inputType="textPassword"
             android:minHeight="48dp"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:textColorHint="@color/black"/>
 
 
         <EditText
@@ -91,7 +95,8 @@ tools:context=".Login">
             android:hint="Name"
             android:inputType="text"
             android:minHeight="48dp"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:textColorHint="@color/black"/>
 
 
 

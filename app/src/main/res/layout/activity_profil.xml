@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pink"
     tools:context=".Profil">
-
-    <!-- Hak Akses -->
 
     <ImageView
         android:id="@+id/imageView"
@@ -15,21 +14,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/baseline_account_circle_24"
-        tools:layout_editor_absoluteY="72dp"
-        tools:ignore="MissingConstraints" />
+        app:srcCompat="@drawable/pfrl"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="72dp" />
 
     <Button
         android:id="@+id/Logoutbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="52dp"
+        android:layout_height="51dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Logout"
-        android:backgroundTint="@color/blue"
-        app:srcCompat="@drawable/sharp_bathtub_24"
+        android:background="@drawable/baseline_logout_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_logout_24" />
 
 
 
@@ -47,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="UnknownId" />
 
-    <!-- Hak Akses -->
+
     <TextView
         android:id="@+id/Email"
         android:layout_width="wrap_content"
